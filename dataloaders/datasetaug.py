@@ -1,5 +1,5 @@
-from torch.utils.data import *
-import lmdb
+from torch.utils.data import Dataset, DataLoader
+import lmdb # use: conda install -c conda-forge python-lmdb
 import torchvision
 import pandas as pd
 import numpy as np

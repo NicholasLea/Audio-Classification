@@ -49,16 +49,25 @@ def extract_features(audios):
 		extract_spectrogram(values, clip, audio["class_idx"])
 		print("Finished audio {}".format(audio))
 	return values
+
 if __name__=="__main__":
 	args = parser.parse_args()
 	root_dir = args.data_dir
 
 	training_audios = []
 	validation_audios = []
+	class_names = []
+
+	# print("os.walk(root_dir)",os.walk(root_dir))
 
 	for root, dirs, files in os.walk(root_dir):
+		print("root",root)
+		print("dirs", dirs)
+		print("files", files)
 		class_names = dirs
 		break
+
+	print("class_names", class_names)
 
 	for _class in class_names:
 		class_dir = os.path.join(root_dir, _class)

@@ -16,6 +16,7 @@ import dataloaders.datasetnormal
 from tqdm import tqdm
 from tensorboardX import SummaryWriter
 
+# https://docs.python.org/zh-cn/3/library/argparse.html
 parser = argparse.ArgumentParser()
 parser.add_argument("--config_path", type=str)
 
@@ -66,6 +67,7 @@ def train_and_evaluate(model, device, train_loader, val_loader, optimizer, loss_
         writer.add_scalar("data{}/valLoss{}".format(params.dataset_name, split), acc, epoch)
     writer.close()
 
+# python preprocessing/preprocessingGTZAN.py --data_dir /Users/nicholas/Documents/Dataset/GTZAN --store_dir store_spectrograms/ --sampling_rate 22050
 
 if __name__ == "__main__":
     args = parser.parse_args()
